@@ -1,18 +1,37 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="urf-8">
-        <meta nmae="viewport" content="width=device-width">
-        <!-- development version, includes helpful console warnings -->
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        
-        <title>L+7 to do</title>
-    </head>
-    <body>
-        <h1>Liang +7 Vue Todo List</h1>
-        <div id="app">
-            {{message}}
-        </div>
-        <script src="main.js"></script>
-    </body>
+
+<head>
+    <meta charset="urf-8">
+    <meta nmae="viewport" content="width=device-width">
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <title>L+7 to do</title>
+</head>
+
+<body>
+    <h1>Liang+7's Todo List</h1>
+    <div id="app">
+        <h2>{{message}}</h1>
+        <h3>Todos:</h2>
+        <ol>
+            <li v-for="todo in todos">
+                <label>
+                    <input type="checkbox" v-on:change="toggle(todo)" v-bind:checked="todo.done">
+
+                    <del v-if="todo.done">
+                        {{ todo.text }}
+                    </del>
+                    <span class="waitToDo" v-else>
+                        {{ todo.text }}
+                    </span>
+                </label>
+            </li>
+        </ol>
+    </div>
+    <script src="main.js"></script>
+</body>
+
 </html>
+

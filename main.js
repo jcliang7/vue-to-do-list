@@ -1,6 +1,19 @@
-var app= new Vue({
-    el:'#app',
-    data:{
-        message:'Hello Vue!'
-    }    
+new Vue({
+    el: "#app",
+    data: {
+        message: 'Hello, I have to do these things today.',
+        todos: [
+            { text: "Modify the PPT of Lispeak.", done: false },
+            { text: "Test Coding-pass", done: false },
+            { text: "Play around in JSFiddle", done: true },
+            { text: "Build something awesome", done: true }
+        ]
+    },
+    methods: {
+        toggle: function (todo) {
+            console.log("Beofre:", todo.done)
+            todo.done = !todo.done
+            console.log("After:", todo.done)
+        }
+    }
 })
