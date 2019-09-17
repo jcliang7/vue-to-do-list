@@ -13,8 +13,11 @@
 <body>
     <h1>Liang+7's Todo List</h1>
     <div id="app">
-        <h2>{{message}}</h1>
-        <h3>Todos:</h2>
+        <h2>{{message}}</h2>
+        <h3>Todos:</h3>
+            <h3>
+            new:<input type="text" v-model="inputValue" v-on:keyup.enter="add"/>
+            </h3>
         <ol>
             <li v-for="todo in todos">
                 <label>
