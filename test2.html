@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <title>My first BootstrapVue app</title>
+
+    <!-- Required Stylesheets -->
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
+
+    <!-- Load polyfills to support older browsers -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver"></script>
+
+    <!-- Required scripts -->
+    <script src="https://unpkg.com/vue@latest/dist/vue.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+</head>
+
+<body>
+    <!-- Our application root element -->
+    <div id="app">
+        <b-container>
+
+            <div v-for="(loginPeople, idx) in userlist" :key="`user-${idx}`">
+                <h1>idx:{{idx}}</h1>
+                <b-form>
+                    <b-row>
+                        <b-form-radio v-model="loginPeople.role" name="`option${idx}`" value="teacher">教保人員
+                        </b-form-radio>
+                        <br />
+                        <b-form-radio v-model="loginPeople.role" name="`option${idx}`" value="teacher_super">教保督導
+                        </b-form-radio>
+                        <br />
+                        <b-form-radio v-model="loginPeople.role" name="`option${idx}`" value="social">社工人員
+                        </b-form-radio>
+                        <br />
+                        <b-form-radio v-model="loginPeople.role" name="`option${idx}`" value="social_super">社工督導
+                        </b-form-radio>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    </b-row>
+                </b-form>
+            </div>
+
+
+
+        </b-container>
+    </div>
+
+    <!-- Start running your app -->
+    <script>
+        window.app = new Vue({
+            el: '#app',
+            data: {
+                name: '',
+                userlist: [
+                    {
+                        role: "teacher",
+                    },
+                    
+                    { role: "teacher_super"},
+                    { role: "teacher"},
+                    {role:"social"},
+                ],
+                loginPeople2: {
+                    role: "teacher",
+
+                }
+
+            },
+            computed: {
+                showAlert() {
+                    return this.name.length > 4 ? true : false
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
